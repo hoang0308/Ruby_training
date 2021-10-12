@@ -4,21 +4,8 @@ arr = []
 for i in 0...n do
     arr.push(gets.chomp.to_i)
 end
-new = []
-for i in 0...n do
-    dem = 0
-    for j in 0...n do
-        if arr[j]==arr[i]
-            if j<i
-                break
-            else
-                dem+=1
-            end
-        end
-    end
-    if dem>=1
-        
-        new.push(h = {"#{arr[i]}" => dem})
-    end
-end
+
+h = Hash.new(0)
+arr.map {|v| h[v] += 1}
+new = h.map{|v| Hash[[v]]}
 print new
